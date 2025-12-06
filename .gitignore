@@ -1,0 +1,8 @@
+# Do not include Advent of Code problems and input
+input
+puzzle.md
+
+# Include setupday code, but not executables
+/setupday
+cmd/setupday/setupday
+!cmd/setupday/setupday.go
