@@ -79,6 +79,16 @@ func (s Set[K]) Intersect(other Set[K]) {
 	}
 }
 
+func (s Set[K]) Intersects(other Set[K]) bool {
+	for k := range s {
+		_, inOther := other[k]
+		if inOther {
+			return true
+		}
+	}
+	return false
+}
+
 func (s Set[K]) GetOne() K {
 	for k := range s {
 		return k
