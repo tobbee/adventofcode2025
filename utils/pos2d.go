@@ -40,3 +40,20 @@ var Dirs2DAll = []Pos2D{{1, 0}, {0, 1}, {-1, 0}, {0, -1},
 func (p Pos2D) Manhattan() int {
 	return Abs(p.Row) + Abs(p.Col)
 }
+
+func ManhattanDistance(a, b Pos2D) int {
+	return Abs(a.Row-b.Row) + Abs(a.Col-b.Col)
+}
+
+// ShoeLaceArea returns the area of a closed polygon.
+// Negative area indicates clockwise winding
+func ShoeLaceArea(points []Pos2D) int {
+	area := 0
+	n := len(points)
+	for i := 0; i < n; i++ {
+		j := (i + 1) % n
+		area += points[i].Col * points[j].Row
+		area -= points[j].Col * points[i].Row
+	}
+	return area / 2
+}
